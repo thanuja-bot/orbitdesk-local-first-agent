@@ -1,0 +1,28 @@
+[project]
+name = "orbitdesk-local-first-agent"
+version = "1.0.0"
+description = "A local-first, evidence-grounded OrbitDesk support agent network."
+requires-python = ">=3.10"
+dependencies = [
+  "langgraph>=0.2.0,<2.0.0",
+  "pydantic>=2.6.0,<3.0.0",
+  "jsonschema>=4.20.0,<5.0.0",
+  "numpy>=1.26.0,<3.0.0",
+  "torch>=2.2.0",
+  "transformers>=4.40.0,<5.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0,<9.0.0"]
+
+[project.scripts]
+orbitdesk-agent = "orbitdesk_agent.cli:main"
+orbitdesk-samples = "orbitdesk_agent.sample_runner:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

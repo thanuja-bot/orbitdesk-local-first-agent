@@ -1,0 +1,10 @@
+flowchart TD
+    START([Question]) --> TRIAGE[Triage]
+    TRIAGE -->|answerable / escalation| RETRIEVE[Local Retrieval]
+    TRIAGE -->|clarification / out of scope| GENERATE[Response Generation]
+    RETRIEVE --> GENERATE
+    GENERATE --> VERIFY{Verification}
+    VERIFY -->|pass| END([Structured response])
+    VERIFY -->|fail, revision budget available| REVISE[Revision]
+    REVISE --> VERIFY
+    VERIFY -->|fail, budget exhausted| SAFE[Safe failure]

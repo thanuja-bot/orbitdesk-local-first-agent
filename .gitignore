@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+dist/
+build/
+*.egg-info/
+models/*
+!models/.gitkeep
+outputs/*.json
+outputs/*.jsonl
+outputs/*.log
+!outputs/sample_outputs.json
